@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "imports": {
+    "@sallai/ask": "jsr:@sallai/ask@^2.0.2",
+    "@std/assert": "jsr:@std/assert@1"
+  }
+}
