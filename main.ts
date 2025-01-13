@@ -4,7 +4,7 @@ import { writeText } from "https://deno.land/x/copy_paste/mod.ts";
 if (import.meta.main) {
   const ask = new Ask();
 
-  const dayChoices = Array.from({ length: 2 }, (_, i) => ({
+  const dayChoices = Array.from({ length: 3 }, (_, i) => ({
     value: `day${String(i + 1).padStart(2, "0")}`,
     message: `Day ${i + 1}`,
   }));
