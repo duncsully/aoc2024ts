@@ -4,7 +4,7 @@ import { writeText } from "https://deno.land/x/copy_paste/mod.ts";
 if (import.meta.main) {
   const ask = new Ask();
 
-  const dayChoices = Array.from({ length: 5 }, (_, i) => ({
+  const dayChoices = Array.from({ length: 6 }, (_, i) => ({
     value: `day${String(i + 1).padStart(2, "0")}`,
     message: `Day ${i + 1}`,
   }));
@@ -37,11 +37,15 @@ if (import.meta.main) {
   const { day, part, input } = answers;
   const inputText = await Deno.readTextFile(input);
 
-  const solver = await import(`./${day}.ts`);
+  const solver = await import(`./days/${day}.ts`);
+
+  const start = performance.now();
   const result = await solver[part](inputText);
+  const end = performance.now();
 
   console.log("The answer is:");
   console.log(result);
+  console.log(`Took ${end - start}ms`);
 
   // TODO: This seems to get skipped when passing --allow-read
   const { copy } = await ask.confirm({
